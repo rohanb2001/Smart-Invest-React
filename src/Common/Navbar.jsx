@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaMedkit } from "./icons";
 
 const Navbar = () => {
+  const [direct, setDirect] = useState(true);
+  const navigate = useNavigate();
+
+  const handleChange = () => {
+    setDirect(!direct);
+    if (direct === true) {
+      navigate("/signup");
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <>
       <nav className="nav">
@@ -12,7 +25,7 @@ const Navbar = () => {
           </div>
           <div className="register-signin">
             <a> Build Your Dev Portfolio</a>
-            <a> Sign up</a>
+            <a onClick={handleChange}> {direct ? "Sign up" : "Sign in"}</a>
           </div>
         </div>
       </nav>
