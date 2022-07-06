@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+
+$button-primary: rgb(37, 99, 235);
+$secondary-font: "Josefin Slab", serif;
+$heading-font: "Source Sans Pro", sans-serif;
+
+.main-content {
+  height: 500px;
+  width: 850px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 135px auto;
+
+  .content {
+    img {
+      height: 170px;
+      width: 410px;
+      margin: 15px auto;
+    }
+
+    h1 {
+      font-size: 45px;
+      width: 480px;
+      font-family: $secondary-font;
+      margin: 15px auto;
+      text-align: center;
+      letter-spacing: 1.3px;
+    }
+  }
+
+  .form-content {
+    width: 75%;
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .form-label {
+        font-size: 15px;
+        margin: 3px 0;
+        letter-spacing: 1.1px;
+        font-family: $heading-font;
+        display: flex;
+      }
+
+      .form-input {
+        padding: 16px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        outline: none;
+      }
+
+      .submit-btn {
+        padding: 14px;
+        letter-spacing: 1.2px;
+        font-family: $heading-font;
+        font-weight: bold;
+        font-size: 14px;
+        background: $button-primary;
+        color: #fff;
+        border-radius: 6px;
+        border: none;
+        margin-bottom: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+}
