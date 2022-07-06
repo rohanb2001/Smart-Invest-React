@@ -3,6 +3,11 @@ import Form from "../Components/Form/Form";
 import FormInput from "../Components/Form/FormInput";
 
 const SignUp = () => {
+  const handleSubmit = (e, values) => {
+    e.preventDefault();
+    console.log(values);
+  };
+
   return (
     <>
       <section className="main-content">
@@ -10,7 +15,15 @@ const SignUp = () => {
           <h1>Create a free account</h1>
         </div>
         <div className="form-content">
-          <Form>
+          <Form
+            initialValues={{
+              username: "",
+              email: "",
+              password: "",
+              number: "",
+            }}
+            handleSubmit={handleSubmit}
+          >
             <FormInput
               type="text"
               placeholder={"Enter your name..."}
@@ -36,7 +49,7 @@ const SignUp = () => {
               labelContent={"Confirm Password"}
             />
             <FormInput
-              type="number"
+              type="text"
               placeholder={"Enter your number..."}
               name="number"
               labelContent={"Mobile Number"}
