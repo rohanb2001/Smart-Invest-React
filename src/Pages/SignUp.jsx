@@ -1,10 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Form from "../Components/Form/Form";
 import FormInput from "../Components/Form/FormInput";
+import useAuth from "../hooks/useAuth";
 
 const SignUp = () => {
-  const handleSubmit = (e, values) => {
-    e.preventDefault();
+  const { setDataToStorage } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = (values) => {
+    setDataToStorage(values);
+    navigate("/");
     console.log(values);
   };
 
@@ -20,6 +26,7 @@ const SignUp = () => {
               username: "",
               email: "",
               password: "",
+              confirmpassword: "",
               number: "",
             }}
             handleSubmit={handleSubmit}

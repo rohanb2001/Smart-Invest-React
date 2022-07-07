@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 import { FaMedkit } from "./icons";
 
 const Navbar = () => {
   const [direct, setDirect] = useState(true);
+  const { isLoggedIn, userData } = useAuth();
   const navigate = useNavigate();
+
+  console.log(isLoggedIn, userData);
 
   const handleChange = () => {
     setDirect(!direct);
@@ -25,7 +29,14 @@ const Navbar = () => {
           </div>
           <div className="register-signin">
             <a> Build Your Dev Portfolio</a>
-            <a onClick={handleChange}> {direct ? "Sign up" : "Sign in"}</a>
+            {userData ? (
+              ""
+            ) : (
+              <a onClick={handleChange}> {direct ? "Sign up" : "Sign in"}</a>
+            )}
+            {/* <a onClick={handleChange}>
+              {isLoggedIn ? "" : direct ? "Sign up" : "Sign in"}
+            </a> */}
           </div>
         </div>
       </nav>

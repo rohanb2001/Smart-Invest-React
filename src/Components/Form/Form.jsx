@@ -1,9 +1,11 @@
 import React, { createContext, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export const FormContext = createContext(null);
 
 const Form = ({ children, initialValues, handleSubmit }) => {
   const [formValue, setFormValue] = useState(initialValues);
+  const location = useLocation();
 
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
@@ -14,15 +16,18 @@ const Form = ({ children, initialValues, handleSubmit }) => {
       <form
         className="form"
         onSubmit={(e) => {
-          handleSubmit(e, { ...formValue });
+          e.preventDefault();
+          handleSubmit({ ...formValue });
           setFormValue(initialValues);
         }}
       >
-        <FormContext.Provider value={{ formValue: formValue, handleChange }}>
+        <FormContext.Provider value={{ formValue, handleChange }}>
           {children}
         </FormContext.Provider>
         <button className="submit-btn" type="submit">
-          Email a login link
+          {location.pathname === "/signup"
+            ? "Create a account"
+            : "Email a login link"}
         </button>
       </form>
     </>

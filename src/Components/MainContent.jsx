@@ -1,4 +1,5 @@
 import React from "react";
+
 import Form from "./Form/Form";
 import FormInput from "./Form/FormInput";
 import MainImage from "../assets/image/MainImage.svg";
