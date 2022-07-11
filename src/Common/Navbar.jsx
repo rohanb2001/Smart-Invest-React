@@ -5,10 +5,8 @@ import { FaMedkit } from "./icons";
 
 const Navbar = () => {
   const [direct, setDirect] = useState(true);
-  const { isLoggedIn, userData } = useAuth();
+  const { userData } = useAuth();
   const navigate = useNavigate();
-
-  console.log(isLoggedIn, userData);
 
   const handleChange = () => {
     setDirect(!direct);

@@ -52,7 +52,7 @@ const SignUp = () => {
             <FormInput
               type="password"
               placeholder={"Enter password..."}
-              name="Confirm password"
+              name="confirmpassword"
               labelContent={"Confirm Password"}
             />
             <FormInput
