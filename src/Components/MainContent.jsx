@@ -3,11 +3,20 @@ import React from "react";
 import Form from "./Form/Form";
 import FormInput from "./Form/FormInput";
 import MainImage from "../assets/image/MainImage.svg";
+import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const MainContent = () => {
-  const handleSubmit = (e, values) => {
-    e.preventDefault();
-    console.log(values);
+  const { userData } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = (values) => {
+    if (
+      userData.email === values.email &&
+      userData.password === values.password
+    ) {
+      navigate("/profile");
+    }
   };
 
   return (

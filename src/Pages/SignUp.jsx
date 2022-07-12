@@ -11,7 +11,7 @@ const SignUp = () => {
   const handleSubmit = (values) => {
     setDataToStorage(values);
     navigate("/");
-    console.log(values);
+    // console.log(values);
   };
 
   return (

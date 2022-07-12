@@ -3,12 +3,11 @@ import { AiFillInfoCircle } from "../../Common/icons";
 import { FormContext } from "./Form";
 
 let errorMessageStyles = {
-  position: "absolute",
-  right: "0",
-  bottom: "-1.6rem",
   display: "flex",
   alignItems: "center",
   letterSpacing: "1.1px",
+  marginTop: "-10px",
+  marginBottom: "12px",
 };
 
 const FormInput = ({ labelContent, type, placeholder, name }) => {

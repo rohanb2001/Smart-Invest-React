@@ -8,22 +8,34 @@
     align-items: center;
     justify-content: space-between;
     margin: 5px auto;
-  }
 
-  .heading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .heading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    .icon {
-      font-size: 25px;
-      margin-right: 6px;
+      .icon {
+        font-size: 25px;
+        margin-right: 6px;
+      }
+
+      h2 {
+        letter-spacing: 1.4px;
+        font-size: 23px;
+        margin-top: 2px;
+      }
     }
 
-    h2 {
-      letter-spacing: 1.4px;
-      font-size: 23px;
-      margin-top: 2px;
+    .logout-notification {
+      .lg-icon {
+        font-size: 25px;
+        margin: 5px 25px;
+
+        &:hover {
+          cursor: pointer;
+          opacity: 0.8;
+        }
+      }
     }
   }
 

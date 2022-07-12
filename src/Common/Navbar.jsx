@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import { FaMedkit } from "./icons";
+import { FaMedkit, AiFillBell, FiLogOut } from "./icons";
 
 const Navbar = () => {
   const [direct, setDirect] = useState(true);
   const { userData } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleChange = () => {
     setDirect(!direct);
@@ -25,17 +26,21 @@ const Navbar = () => {
             <FaMedkit className="icon" />
             <h2>SmartInvest</h2>
           </div>
-          <div className="register-signin">
-            <a> Build Your Dev Portfolio</a>
-            {userData ? (
-              ""
-            ) : (
-              <a onClick={handleChange}> {direct ? "Sign up" : "Sign in"}</a>
-            )}
-            {/* <a onClick={handleChange}>
-              {isLoggedIn ? "" : direct ? "Sign up" : "Sign in"}
-            </a> */}
-          </div>
+          {location.pathname === "/profile" ? (
+            <div className="logout-notification">
+              <AiFillBell className="lg-icon" />
+              <FiLogOut className="lg-icon" />
+            </div>
+          ) : (
+            <div className="register-signin">
+              <a> Build Your Dev Portfolio</a>
+              {userData ? (
+                ""
+              ) : (
+                <a onClick={handleChange}> {direct ? "Sign up" : "Sign in"}</a>
+              )}
+            </div>
+          )}
         </div>
       </nav>
     </>

@@ -1,4 +1,5 @@
 import { FaMedkit } from "react-icons/fa";
-import { AiFillInfoCircle } from "react-icons/ai";
+import { FiLogOut } from "react-icons/fi";
+import { AiFillInfoCircle, AiFillBell } from "react-icons/ai";
 
-export { FaMedkit, AiFillInfoCircle };
+export { FaMedkit, AiFillInfoCircle, AiFillBell, FiLogOut };

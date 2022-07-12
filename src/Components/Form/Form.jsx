@@ -2,7 +2,10 @@ import React, { createContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import useFormValidation from "../../hooks/useFormValidation";
 
-export const FormContext = createContext(null);
+export const FormContext = createContext({
+  form: {},
+  error: null,
+});
 
 const Form = ({ children, initialValues, handleSubmit }) => {
   // const [formValue, setFormValue] = useState(initialValues);
