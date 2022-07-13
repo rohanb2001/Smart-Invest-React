@@ -19,6 +19,7 @@ const useAuth = () => {
   };
 
   return {
+    isLoggedin: userData ? true : false,
     userData,
     setDataToStorage,
     clearStorage,
