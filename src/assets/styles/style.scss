@@ -2,8 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
 
 @import "./core//navbar";
-@import "./pages/homepage";
 @import "./core/footer";
+@import "./pages/homepage";
+@import "./pages/profilepage";
 
 // Variables
 $primary-font: "Roboto", sans-serif;
@@ -19,6 +20,16 @@ a {
   text-decoration: none;
   color: #fff;
   letter-spacing: 1.1px;
+}
+
+.lg-icon {
+  font-size: 25px;
+  margin: 5px 25px;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 }
 
 body {

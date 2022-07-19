@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 
 export const LoginContext = createContext(null);
 
 const useLoginContext = ({ children }) => {
-  const [profile, setProfile] = useState(true);
+  const [userLoggedin, setUserLoggedIn] = useState(null);
+
+  useEffect(() => {
+    const loggedUser = sessionStorage.getItem("credentials");
+    setUserLoggedIn(Boolean(loggedUser));
+  }, []);
 
   return (
-    <LoginContext.Provider value={{ setProfile, profile }}>
+    <LoginContext.Provider value={{ setUserLoggedIn, userLoggedin }}>
       {children}
     </LoginContext.Provider>
   );

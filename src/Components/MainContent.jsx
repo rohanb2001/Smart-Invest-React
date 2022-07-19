@@ -8,7 +8,6 @@ const MainContent = () => {
 
   const handleSubmit = (values) => {
     loginValidation(values);
-    console.log(currentUser);
   };
 
   return (
