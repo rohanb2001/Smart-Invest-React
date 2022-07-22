@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import Form from "../Components/Form/Form";
 import FormInput from "../Components/Form/FormInput";
 import useAuth from "../hooks/useAuth";
+import { userDataFields } from "../utils/userData";
 
 const SignUp = () => {
-  const { setDataToStorage } = useAuth();
+  const { setDataToStorage, userData } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (values) => {
@@ -21,16 +22,7 @@ const SignUp = () => {
           <h1>Create a free account</h1>
         </div>
         <div className="form-content">
-          <Form
-            initialValues={{
-              username: "",
-              email: "",
-              password: "",
-              confirmpassword: "",
-              number: "",
-            }}
-            handleSubmit={handleSubmit}
-          >
+          <Form initialValues={{ ...userData }} handleSubmit={handleSubmit}>
             <FormInput
               type="text"
               placeholder={"Enter your name..."}

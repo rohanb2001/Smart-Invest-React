@@ -1,23 +1,13 @@
 import React from "react";
+import { useContext } from "react";
 import { FaMale, FaFemale } from "../Common/icons";
+import { AuthContext } from "../hooks/useAuthContext";
+import MultipleSelection from "./MultipleSelection";
 
 const GenderSelection = () => {
-  return (
-    <>
-      <div className="gender-selection">
-        <div className="gender">
-          <div className="gender-details">
-            <FaMale /> Male
-          </div>
-        </div>
-        <div className="gender">
-          <div className="gender-details">
-            <FaFemale /> Female
-          </div>
-        </div>
-      </div>
-    </>
-  );
+  const { userData } = useContext(AuthContext);
+
+  return <MultipleSelection types={["Male", "Female"]} />;
 };
 
 export default GenderSelection;
