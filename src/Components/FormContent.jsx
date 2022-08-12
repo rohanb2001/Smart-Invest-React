@@ -3,6 +3,9 @@ import { useState } from "react";
 import { AuthContext } from "../hooks/useAuthContext";
 import useProfileUpdate from "../hooks/useProfileUpdate";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const FormContent = () => {
   const { userData } = useContext(AuthContext);
   const { username, number, email, dob, martialStatus, annualIncome } =
@@ -102,6 +105,7 @@ const FormContent = () => {
           </button>
         </form>
       </div>
+      <ToastContainer autoClose={2000} />
     </>
   );
 };

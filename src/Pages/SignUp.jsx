@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Form from "../Components/Form/Form";
 import FormInput from "../Components/Form/FormInput";
 import useAuth from "../hooks/useAuth";
-import { userDataFields } from "../utils/userData";
 
 const SignUp = () => {
   const { setDataToStorage, userData } = useAuth();
@@ -12,7 +11,6 @@ const SignUp = () => {
   const handleSubmit = (values) => {
     setDataToStorage(values);
     navigate("/");
-    // console.log(values);
   };
 
   return (

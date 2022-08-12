@@ -1,15 +1,16 @@
 import { useContext } from "react";
-import { useState } from "react";
-import { userDataFields } from "../utils/userData";
 import { AuthContext } from "./useAuthContext";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const useProfileUpdate = () => {
   const { setUserData, userData } = useContext(AuthContext);
-  // const [profileForm, setProfileForm] = useState({ ...userDataFields });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     sessionStorage.setItem("credentials", JSON.stringify(userData));
+    toast.success("Saved Successful");
   };
 
   const handleChange = (e) => {
