@@ -9,7 +9,6 @@ const FormContent = () => {
     userData;
 
   const { profileForm, handleSubmit, handleChange } = useProfileUpdate();
-  console.log(userData);
 
   return (
     <>

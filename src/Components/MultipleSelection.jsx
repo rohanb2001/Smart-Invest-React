@@ -1,18 +1,24 @@
 import React from "react";
 import { useContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as Icons from "../Common/icons";
 import { AuthContext } from "../hooks/useAuthContext";
 
 const MultipleSelection = ({ types }) => {
   const { userData, setUserData } = useContext(AuthContext);
-  const [selected, setSelected] = useState(() => userData.gender);
-  console.log(userData.gender);
+  const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    if (userData && userData.gender) {
+      setSelected(userData.gender);
+    }
+  }, [userData]);
 
   const handleClick = (idx) => {
-    setSelected((prevIdx) => idx);
-    console.log(selected, Math.random());
-    setUserData({ ...userData, gender: selected });
+    setSelected((previous) => idx);
+    setUserData((userData) => {
+      return { ...userData, gender: idx };
+    });
   };
 
   return (
@@ -20,9 +26,9 @@ const MultipleSelection = ({ types }) => {
       <div className="gender-selection">
         {types.map((type, idx) => (
           <div
-            className={`gender ${selected === idx && "gender-active"}`}
+            className={`gender ${selected === idx + 1 && "gender-active"}`}
             key={idx}
-            onClick={() => handleClick(idx)}
+            onClick={() => handleClick(idx + 1)}
           >
             <div className="gender-details">
               {Icons[`Fa${type}`]()} {type}
