@@ -10,7 +10,7 @@ const useProfileUpdate = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sessionStorage.setItem("credentials", JSON.stringify(userData));
-    toast.success("Saved Successful");
+    toast.success("Saved Successful", { theme: "colored" });
   };
 
   const handleChange = (e) => {

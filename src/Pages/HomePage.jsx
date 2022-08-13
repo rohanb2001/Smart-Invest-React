@@ -1,17 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Footer from "../Common/Footer";
 import MainContent from "../Components/MainContent";
-import { AuthContext } from "../hooks/useAuthContext";
-
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const HomePage = () => {
-  const { userData } = useContext(AuthContext);
-  {
-    userData && toast.success("Created account successfully");
-  }
-
   return (
     <>
       <MainContent />
