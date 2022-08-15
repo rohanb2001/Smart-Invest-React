@@ -1,16 +1,16 @@
 import { useContext } from "react";
 import { AuthContext } from "./useAuthContext";
 
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import useToast from "./useToast";
 
 const useProfileUpdate = () => {
   const { setUserData, userData } = useContext(AuthContext);
+  const { showToast } = useToast();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     sessionStorage.setItem("credentials", JSON.stringify(userData));
-    toast.success("Saved Successful", { theme: "colored" });
+    showToast("update");
   };
 
   const handleChange = (e) => {

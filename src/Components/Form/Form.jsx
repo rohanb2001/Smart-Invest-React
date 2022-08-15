@@ -2,8 +2,7 @@ import React, { createContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import useFormValidation from "../../hooks/useFormValidation";
 
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import useToast from "../../hooks/useToast";
 
 export const FormContext = createContext({
   form: {},
@@ -11,9 +10,10 @@ export const FormContext = createContext({
 });
 
 const Form = ({ children, initialValues, handleSubmit }) => {
-  // const [formValue, setFormValue] = useState(initialValues);
   const { form, error, validating, setForm } = useFormValidation(initialValues);
   const location = useLocation();
+
+  const { showToast } = useToast();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -27,7 +27,7 @@ const Form = ({ children, initialValues, handleSubmit }) => {
           e.preventDefault();
           if (validating()) {
             handleSubmit({ ...form });
-            toast.success("Account created successfully", { theme: "colored" });
+            showToast("submit");
             setForm({});
           }
         }}
