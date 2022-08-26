@@ -7,6 +7,10 @@ import SignUp from "./Pages/SignUp";
 import useAuth from "./hooks/useAuth";
 // import useLoginValidation from "./hooks/useLoginValidation";
 import { LoginContext } from "./hooks/useLoginContext";
+import Policies from "./Components/Policies";
+import DashBoard from "./Components/DashBoard";
+import HelpMessage from "./Components/HelpMessage";
+import Settings from "./Components/Settings";
 
 function App() {
   const { isLoggedin } = useAuth();
@@ -33,9 +37,14 @@ function App() {
           }
         />
         <Route
-          path="/profile"
+          path="/profile/*"
           element={isLoggedin ? <ProfilePage /> : <Navigate to="/" />}
-        />
+        >
+          <Route path="policies" element={<Policies />} />
+          <Route path="dashboard" element={<DashBoard />} />
+          <Route path="help" element={<HelpMessage />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
       </Routes>
     </>
   );

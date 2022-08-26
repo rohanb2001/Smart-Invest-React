@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { SidebarContext } from "../hooks/useSidebarContext";
 import { FaMedkit, AiFillBell, FiLogOut } from "./icons";
 
 const Navbar = () => {
@@ -8,6 +9,8 @@ const Navbar = () => {
   const { userData } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const { profileLogin } = useContext(SidebarContext);
 
   const handleChange = () => {
     setDirect(!direct);
@@ -26,7 +29,7 @@ const Navbar = () => {
             <FaMedkit className="icon" />
             <h2>SmartInvest</h2>
           </div>
-          {location.pathname === "/profile" ? (
+          {profileLogin === true ? (
             <div className="logout-notification">
               <AiFillBell className="lg-icon" />
               <FiLogOut className="lg-icon" />

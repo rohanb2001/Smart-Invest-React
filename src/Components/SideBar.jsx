@@ -1,4 +1,6 @@
 import React from "react";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   AiFillHome,
   BsClipboardData,
@@ -6,36 +8,39 @@ import {
   IoMdHelp,
   FiSettings,
 } from "../Common/icons";
+import { SidebarContext } from "../hooks/useSidebarContext";
 
 const SideBar = () => {
+  const { setClickLink } = useContext(SidebarContext);
+
   return (
     <>
       <div className="side-bar">
-        <ul>
+        <ul onClick={() => setClickLink(true)}>
           <li>
-            <a href="#">
+            <Link to="dashboard">
               <AiFillHome className="lg-icon" /> Dashboard
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="policies">
               <BsClipboardData className="lg-icon" /> Policies
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="profile">
               <AiOutlineUser className="lg-icon" /> Profile
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="help">
               <IoMdHelp className="lg-icon" /> Help & Message
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="settings">
               <FiSettings className="lg-icon" /> Settings
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="side-color"></div>
